@@ -24,7 +24,7 @@ if (-not $Tag) { $Tag = "v$version" }
 $setup = Get-ChildItem (Join-Path $root "dist") -Filter "StarlitConnect-$version-windows-amd64-setup.exe" |
   Select-Object -First 1
 if (-not $setup) {
-  throw "Missing dist\StarlitConnect-$version-windows-amd64-setup.exe — build first (dart setup.dart windows --targets exe)"
+  throw "Missing dist\StarlitConnect-$version-windows-amd64-setup.exe. Build first: dart setup.dart windows --targets exe"
 }
 
 $assetName = $setup.Name
