@@ -1,4 +1,4 @@
-# Create/update a GitHub Release for StarlitConnect Windows installer.
+﻿# Create/update a GitHub Release for StarlitConnect Windows installer.
 # Requires: gh auth, built dist\StarlitConnect-*-windows-amd64-setup.exe
 #
 # Usage:
@@ -37,12 +37,13 @@ Write-Host "Tag:    $Tag"
 Write-Host "Asset:  $assetName"
 Write-Host "SHA256: $hash"
 
-gh release view $Tag 2>$null | Out-Null
+gh release view $Tag -R RasmusVraa/StarlitConnect 2>$null | Out-Null
 if ($LASTEXITCODE -eq 0) {
   Write-Host "Release $Tag exists - uploading/replacing assets..."
-  gh release upload $Tag $setup.FullName $sumsPath --clobber
+  gh release upload $Tag -R RasmusVraa/StarlitConnect $setup.FullName $sumsPath --clobber
 } else {
-  gh release create $Tag $setup.FullName $sumsPath --title "StarlitConnect $version" --notes $Notes
+  gh release create $Tag -R RasmusVraa/StarlitConnect $setup.FullName $sumsPath --title "StarlitConnect $version" --notes $Notes
 }
 
 Write-Host "Done: https://github.com/RasmusVraa/StarlitConnect/releases/tag/$Tag"
+
