@@ -78,13 +78,11 @@ class _StarlitOnboardingState extends State<StarlitOnboarding> {
                       cursor: SystemMouseCursors.click,
                       child: GestureDetector(
                         onTap: () => unawaited(_finish()),
-                        child: const Text(
+                        child: const StarlitText(
                           'Пропустить',
-                          style: TextStyle(
-                            color: StarlitColors.muted,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          size: 13,
+                          color: StarlitColors.muted,
+                          weight: FontWeight.w600,
                         ),
                       ),
                     ),
@@ -100,26 +98,21 @@ class _StarlitOnboardingState extends State<StarlitOnboarding> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             StarlitGlowIcon(child: _SlideGlyph(slide.kind)),
-                            const SizedBox(height: 36),
-                            Text(
+                            const SizedBox(height: 32),
+                            StarlitText(
                               slide.title,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                color: StarlitColors.text,
-                                fontSize: 26,
-                                fontWeight: FontWeight.w800,
-                                height: 1.2,
-                              ),
+                              size: 24,
+                              weight: FontWeight.w800,
+                              align: TextAlign.center,
+                              height: 1.25,
                             ),
-                            const SizedBox(height: 14),
-                            Text(
+                            const SizedBox(height: 12),
+                            StarlitText(
                               slide.body,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                color: StarlitColors.muted,
-                                fontSize: 16,
-                                height: 1.4,
-                              ),
+                              size: 15,
+                              color: StarlitColors.muted,
+                              align: TextAlign.center,
+                              height: 1.4,
                             ),
                           ],
                         );
@@ -127,7 +120,7 @@ class _StarlitOnboardingState extends State<StarlitOnboarding> {
                     ),
                   ),
                   StarlitPageDots(count: _slides.length, index: _index),
-                  const SizedBox(height: 22),
+                  const SizedBox(height: 20),
                   StarlitPrimaryButton(
                     label: _index == _slides.length - 1 ? 'Начать' : 'Далее',
                     onPressed: _next,

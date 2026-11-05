@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:fl_clash/common/common.dart';
 import 'package:fl_clash/providers/providers.dart';
+import 'package:fl_clash/starlit/key_dialog.dart';
 import 'package:fl_clash/starlit/theme.dart';
 import 'package:fl_clash/starlit/widgets.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,55 +19,49 @@ class StarlitAuthPage extends ConsumerStatefulWidget {
 }
 
 class _StarlitAuthPageState extends ConsumerState<StarlitAuthPage> {
-  final _keyController = TextEditingController();
   var _busy = false;
   String? _error;
 
-  @override
-  void dispose() {
-    _keyController.dispose();
-    super.dispose();
-  }
-
-  Future<void> _openTelegram() async {
+  Future<void> _authTelegram() async {
     await launchUrl(
       Uri.parse(supportUrl),
       mode: LaunchMode.externalApplication,
     );
+    if (!mounted) return;
+    await _collectLink(StarlitAuthSource.telegram);
   }
 
-  Future<void> _openCabinet() async {
+  Future<void> _authCabinet() async {
     await launchUrl(
       Uri.parse(cabinetUrl),
       mode: LaunchMode.externalApplication,
     );
+    if (!mounted) return;
+    await _collectLink(StarlitAuthSource.cabinet);
   }
 
-  Future<void> _pasteKeyFlow() async {
+  Future<void> _authManual() async {
+    await _collectLink(StarlitAuthSource.manual);
+  }
+
+  Future<void> _collectLink(StarlitAuthSource source) async {
     setState(() {
       _error = null;
       _busy = true;
     });
     try {
-      final data = await Clipboard.getData(Clipboard.kTextPlain);
-      final raw = (data?.text ?? _keyController.text).trim();
-      if (raw.isEmpty) {
-        setState(() => _error = 'Вставьте ссылку подписки из кабинета');
-        return;
-      }
-      if (!raw.isStarlitSubscriptionUrl) {
-        setState(
-          () => _error = 'Нужна ссылка с $subscriptionHost',
-        );
-        return;
-      }
-      await ref.read(profilesActionProvider.notifier).addProfileFromLink(raw);
+      final link = await showStarlitKeyDialog(context, source: source);
+      if (link == null || !mounted) return;
+      await ref.read(profilesActionProvider.notifier).addProfileFromLink(link);
       if (!mounted) return;
-      final profiles = ref.read(profilesProvider);
-      if (profiles.isNotEmpty) {
+      if (ref.read(profilesProvider).isNotEmpty) {
         widget.onReady();
       } else {
         setState(() => _error = 'Не удалось добавить подписку');
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() => _error = userFacingErrorMessage(e, currentAppLocalizations));
       }
     } finally {
       if (mounted) setState(() => _busy = false);
@@ -80,82 +74,79 @@ class _StarlitAuthPageState extends ConsumerState<StarlitAuthPage> {
       child: SafeArea(
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 440),
+            constraints: const BoxConstraints(maxWidth: 420),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 28),
               child: Column(
                 children: [
                   const Spacer(flex: 2),
-                  const StarlitMoonMark(size: 72),
-                  const SizedBox(height: 18),
-                  const Text(
+                  const StarlitMoonMark(size: 68),
+                  const SizedBox(height: 20),
+                  const StarlitText(
                     appName,
-                    style: TextStyle(
-                      color: StarlitColors.text,
-                      fontSize: 28,
-                      fontWeight: FontWeight.w800,
-                    ),
+                    size: 28,
+                    weight: FontWeight.w800,
+                    align: TextAlign.center,
                   ),
                   const SizedBox(height: 10),
-                  const Text(
-                    'Войдите — и подписка подтянется сама.\nБез ручных конфигов.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: StarlitColors.muted,
-                      fontSize: 15,
-                      height: 1.4,
-                    ),
+                  const StarlitText(
+                    'Авторизуйтесь через бота или кабинет —\nзатем вставьте ссылку подписки.',
+                    size: 14,
+                    color: StarlitColors.muted,
+                    align: TextAlign.center,
+                    height: 1.45,
                   ),
                   const Spacer(),
                   StarlitPrimaryButton(
-                    label: 'Открыть Telegram-бот',
-                    onPressed: _busy ? null : () => unawaited(_openTelegram()),
-                    icon: const Text('✈', style: TextStyle(fontSize: 16)),
+                    label: 'Войти через Telegram',
+                    onPressed: _busy
+                        ? null
+                        : () => unawaited(_authTelegram()),
+                    icon: const _TgIcon(),
                   ),
                   const SizedBox(height: 12),
                   StarlitGhostButton(
-                    label: 'Кабинет / почта',
-                    onPressed: _busy ? null : () => unawaited(_openCabinet()),
-                    icon: const Text('@', style: TextStyle(fontSize: 16)),
+                    label: 'Войти через кабинет / почту',
+                    onPressed: _busy
+                        ? null
+                        : () => unawaited(_authCabinet()),
+                    icon: const _MailIcon(),
                   ),
-                  const SizedBox(height: 18),
+                  const SizedBox(height: 22),
                   MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: GestureDetector(
-                      onTap: _busy ? null : () => unawaited(_pasteKeyFlow()),
+                      onTap: _busy ? null : () => unawaited(_authManual()),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('🔑', style: TextStyle(fontSize: 14)),
+                          _KeyIcon(),
                           SizedBox(width: 8),
-                          Text(
+                          StarlitText(
                             'Вставить ключ подписки',
-                            style: TextStyle(
-                              color: StarlitColors.text,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            size: 14,
+                            weight: FontWeight.w600,
+                            color: StarlitColors.accent,
                           ),
                         ],
                       ),
                     ),
                   ),
                   if (_error != null) ...[
-                    const SizedBox(height: 12),
-                    Text(
+                    const SizedBox(height: 14),
+                    StarlitText(
                       _error!,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: StarlitColors.danger,
-                        fontSize: 13,
-                      ),
+                      size: 13,
+                      color: StarlitColors.danger,
+                      align: TextAlign.center,
                     ),
                   ],
                   const Spacer(flex: 2),
-                  const Text(
-                    'Нет подписки? Загляните в кабинет — там пробный период.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: StarlitColors.muted2, fontSize: 12),
+                  const StarlitText(
+                    'Нет подписки? Оформите в кабинете или у @starlitvpnbot',
+                    size: 12,
+                    color: StarlitColors.muted2,
+                    align: TextAlign.center,
                   ),
                 ],
               ),
@@ -165,4 +156,109 @@ class _StarlitAuthPageState extends ConsumerState<StarlitAuthPage> {
       ),
     );
   }
+}
+
+class _TgIcon extends StatelessWidget {
+  const _TgIcon();
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(size: const Size(18, 18), painter: _PlanePainter());
+  }
+}
+
+class _MailIcon extends StatelessWidget {
+  const _MailIcon();
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(size: const Size(18, 18), painter: _AtPainter());
+  }
+}
+
+class _KeyIcon extends StatelessWidget {
+  const _KeyIcon();
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(size: const Size(16, 16), painter: _KeyPainter());
+  }
+}
+
+class _PlanePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final p = Paint()
+      ..color = const Color(0xFF041018)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8
+      ..strokeJoin = StrokeJoin.round;
+    final path = Path()
+      ..moveTo(size.width * 0.1, size.height * 0.55)
+      ..lineTo(size.width * 0.9, size.height * 0.2)
+      ..lineTo(size.width * 0.45, size.height * 0.85)
+      ..lineTo(size.width * 0.4, size.height * 0.55)
+      ..close();
+    canvas.drawPath(path, p);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+class _AtPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final p = Paint()
+      ..color = StarlitColors.accent
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8;
+    canvas.drawCircle(
+      Offset(size.width * 0.45, size.height * 0.5),
+      size.width * 0.22,
+      p,
+    );
+    canvas.drawArc(
+      Rect.fromCircle(
+        center: Offset(size.width * 0.5, size.height * 0.5),
+        radius: size.width * 0.38,
+      ),
+      -0.8,
+      4.8,
+      false,
+      p,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+class _KeyPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final p = Paint()
+      ..color = StarlitColors.accent
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.7
+      ..strokeCap = StrokeCap.round;
+    canvas.drawCircle(
+      Offset(size.width * 0.32, size.height * 0.5),
+      size.width * 0.22,
+      p,
+    );
+    canvas.drawLine(
+      Offset(size.width * 0.54, size.height * 0.5),
+      Offset(size.width * 0.92, size.height * 0.5),
+      p,
+    );
+    canvas.drawLine(
+      Offset(size.width * 0.78, size.height * 0.5),
+      Offset(size.width * 0.78, size.height * 0.72),
+      p,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

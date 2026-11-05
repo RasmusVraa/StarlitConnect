@@ -11,33 +11,28 @@ class StarlitScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: StarlitColors.bg,
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          if (glow)
-            const DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  center: Alignment(-0.55, -0.75),
-                  radius: 1.05,
-                  colors: [Color(0x332F8FB8), Color(0x00060912)],
+    return SelectionContainer.disabled(
+      child: DefaultTextStyle(
+        style: starlitText(),
+        child: ColoredBox(
+          color: StarlitColors.bg,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              if (glow)
+                const DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                      center: Alignment(-0.6, -0.8),
+                      radius: 1.1,
+                      colors: [Color(0x2856C2D6), Color(0x0005070D)],
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          if (glow)
-            const DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  center: Alignment(0.7, 0.85),
-                  radius: 0.9,
-                  colors: [Color(0x221E4A5C), Color(0x00060912)],
-                ),
-              ),
-            ),
-          child,
-        ],
+              child,
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -110,14 +105,11 @@ class StarlitPrimaryButton extends StatelessWidget {
       mainAxisSize: expand ? MainAxisSize.max : MainAxisSize.min,
       children: [
         if (icon != null) ...[icon!, const SizedBox(width: 10)],
-        Text(
+        StarlitText(
           label,
-          style: const TextStyle(
-            color: Color(0xFF041018),
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            letterSpacing: 0.2,
-          ),
+          color: const Color(0xFF041018),
+          size: 15,
+          weight: FontWeight.w700,
         ),
       ],
     );
@@ -131,9 +123,9 @@ class StarlitPrimaryButton extends StatelessWidget {
           duration: const Duration(milliseconds: 120),
           opacity: onPressed == null ? 0.45 : 1,
           child: Container(
-            height: 52,
+            height: 50,
             width: expand ? double.infinity : null,
-            padding: const EdgeInsets.symmetric(horizontal: 22),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(StarlitRadii.pill),
               gradient: const LinearGradient(
@@ -141,9 +133,9 @@ class StarlitPrimaryButton extends StatelessWidget {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: StarlitColors.accent.withValues(alpha: 0.28),
-                  blurRadius: 18,
-                  offset: const Offset(0, 6),
+                  color: StarlitColors.accent.withValues(alpha: 0.22),
+                  blurRadius: 16,
+                  offset: const Offset(0, 5),
                 ),
               ],
             ),
@@ -175,7 +167,7 @@ class StarlitGhostButton extends StatelessWidget {
       child: GestureDetector(
         onTap: onPressed,
         child: Container(
-          height: 52,
+          height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
             color: StarlitColors.cardHi,
@@ -186,13 +178,10 @@ class StarlitGhostButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (icon != null) ...[icon!, const SizedBox(width: 10)],
-              Text(
+              StarlitText(
                 label,
-                style: const TextStyle(
-                  color: StarlitColors.text,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                size: 15,
+                weight: FontWeight.w600,
               ),
             ],
           ),
@@ -447,24 +436,18 @@ class StarlitSectionTitle extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        StarlitText(
           title,
-          style: const TextStyle(
-            color: StarlitColors.text,
-            fontSize: 32,
-            fontWeight: FontWeight.w800,
-            letterSpacing: -0.5,
-          ),
+          size: 30,
+          weight: FontWeight.w800,
         ),
         if (subtitle != null) ...[
           const SizedBox(height: 8),
-          Text(
+          StarlitText(
             subtitle!,
-            style: const TextStyle(
-              color: StarlitColors.muted,
-              fontSize: 15,
-              height: 1.35,
-            ),
+            size: 14,
+            color: StarlitColors.muted,
+            height: 1.35,
           ),
         ],
       ],
