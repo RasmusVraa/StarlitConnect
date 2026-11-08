@@ -37,8 +37,14 @@ Write-Host "Tag:    $Tag"
 Write-Host "Asset:  $assetName"
 Write-Host "SHA256: $hash"
 
-gh release view $Tag -R RasmusVraa/StarlitConnect 2>$null | Out-Null
-if ($LASTEXITCODE -eq 0) {
+$exists = $false
+try {
+  gh release view $Tag -R RasmusVraa/StarlitConnect 2>$null | Out-Null
+  if ($LASTEXITCODE -eq 0) { $exists = $true }
+} catch {
+  $exists = $false
+}
+if ($exists) {
   Write-Host "Release $Tag exists - uploading/replacing assets..."
   gh release upload $Tag -R RasmusVraa/StarlitConnect $setup.FullName $sumsPath --clobber
 } else {

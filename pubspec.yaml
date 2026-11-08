@@ -1,7 +1,7 @@
-name: fl_clash
-description: StarlitConnect — desktop client for StarlitVPN (based on FlClash/ClashMeta).
+name: starlit_connect
+description: StarlitConnect — Windows client for StarlitVPN (Xray core).
 publish_to: 'none'
-version: 1.0.3+2026110504
+version: 1.1.6+2026110830
 environment:
   sdk: '>=3.10.0 <4.0.0'
 
@@ -74,6 +74,7 @@ dependencies:
     path: plugins/prism_ui
   setup:
     path: plugins/setup
+  qr: ^4.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -94,10 +95,12 @@ dev_dependencies:
 flutter:
   assets:
     - assets/data/
-    - assets/fonts/
     - assets/images/
     - assets/images/avatar/
     - assets/images/services/
+    - assets/images/ui/
+    - assets/images/map/
+    - assets/sounds/
     - core/Clash.Meta/component/ca/ca-certificates.crt
     - path: assets/images/tray/unix/
       platforms: [ linux, macos ]
@@ -106,6 +109,12 @@ flutter:
     - path: assets/images/tray/windows/
       platforms: [ windows ]
   fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/InterVariable.ttf
+    - family: Manrope
+      fonts:
+        - asset: assets/fonts/ManropeVariable.ttf
     - family: JetBrainsMono
       fonts:
         - asset: assets/fonts/JetBrainsMono-Regular.ttf
