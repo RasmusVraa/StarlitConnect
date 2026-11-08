@@ -23,8 +23,9 @@ class _StarlitAuthPageState extends ConsumerState<StarlitAuthPage> {
   String? _error;
 
   Future<void> _authTelegram() async {
+    // Site starts Telegram OIDC → oauth.telegram.org (command to the bot).
     await launchUrl(
-      Uri.parse(supportUrl),
+      Uri.parse(telegramAuthUrl),
       mode: LaunchMode.externalApplication,
     );
     if (!mounted) return;
@@ -33,7 +34,7 @@ class _StarlitAuthPageState extends ConsumerState<StarlitAuthPage> {
 
   Future<void> _authCabinet() async {
     await launchUrl(
-      Uri.parse(cabinetUrl),
+      Uri.parse(cabinetLoginUrl),
       mode: LaunchMode.externalApplication,
     );
     if (!mounted) return;
@@ -90,7 +91,7 @@ class _StarlitAuthPageState extends ConsumerState<StarlitAuthPage> {
                   ),
                   const SizedBox(height: 10),
                   const StarlitText(
-                    'Авторизуйтесь через бота или кабинет —\nзатем вставьте ссылку подписки.',
+                    'Войдите через сайт (команда уйдёт в бота)\nили кабинет — затем вставьте ссылку подписки.',
                     size: 14,
                     color: StarlitColors.muted,
                     align: TextAlign.center,

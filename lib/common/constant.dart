@@ -20,6 +20,10 @@ final windowsPipeName = '\\\\.\\pipe\\FlClashCore_${_randomPipeId()}';
 const supportUrl = 'https://t.me/starlitvpnbot';
 const websiteUrl = 'https://internet.starlit-moon.ru';
 const cabinetUrl = 'https://cabinet.starlit-moon.ru';
+/// Cabinet OIDC start — site redirects to oauth.telegram.org (bot auth).
+const telegramAuthUrl =
+    'https://internet.starlit-moon.ru/cabinet/api/auth/telegram/start';
+const cabinetLoginUrl = 'https://internet.starlit-moon.ru/login';
 const subscriptionHost = 'sub.starlit-moon.ru';
 const helperPort = 47890;
 const helperPortKey =
