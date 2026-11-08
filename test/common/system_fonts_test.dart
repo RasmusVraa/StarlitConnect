@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:fl_clash/common/system_fonts.dart';
+import 'package:starlit_connect/common/system_fonts.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

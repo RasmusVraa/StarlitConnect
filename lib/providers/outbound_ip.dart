@@ -1,5 +1,5 @@
-import 'package:fl_clash/common/service_probe.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/common/service_probe.dart';
+import 'package:starlit_connect/models/models.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'core.dart';

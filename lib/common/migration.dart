@@ -1,7 +1,7 @@
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/database/database.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/common/constant.dart';
+import 'package:starlit_connect/database/database.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/models.dart';
 import 'package:prism_ui/color.dart';
 
 import 'preferences.dart';

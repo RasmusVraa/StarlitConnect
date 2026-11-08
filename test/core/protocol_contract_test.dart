@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/core/event.dart';
-import 'package:fl_clash/core/desktop/model.dart';
-import 'package:fl_clash/core/interface.dart';
-import 'package:fl_clash/core/method.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/common/constant.dart';
+import 'package:starlit_connect/core/event.dart';
+import 'package:starlit_connect/core/desktop/model.dart';
+import 'package:starlit_connect/core/interface.dart';
+import 'package:starlit_connect/core/method.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class _RecordingCoreHandler extends CoreHandlerInterface {

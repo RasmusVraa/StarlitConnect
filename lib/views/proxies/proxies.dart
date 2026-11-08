@@ -1,10 +1,10 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/views/proxies/list.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
+import 'package:starlit_connect/views/proxies/list.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

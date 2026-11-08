@@ -2,7 +2,10 @@ package core
 
 import (
 	"context"
+	"fmt"
+	"net"
 	"slices"
+	"strings"
 	"sync/atomic"
 	"time"
 
@@ -12,8 +15,9 @@ import (
 )
 
 const (
-	delayTestConcurrency    = 50
-	defaultTestURL          = "https://www.gstatic.com/generate_204"
+	delayTestConcurrency = 50
+	// tcp://node → dial proxy.Addr() (server host:port). HTTP URLs still use URLTest.
+	defaultTestURL          = "tcp://node"
 	defaultDelayTestTimeout = 5 * time.Second
 )
 
@@ -29,8 +33,11 @@ func setTestURL(url string) {
 	if url == "" {
 		return
 	}
-	constant.DefaultTestURL = url
 	testURL.Store(&url)
+	// mihomo health-checks call URLTest with DefaultTestURL; keep that HTTP-only.
+	if !isTCPPingURL(url) {
+		constant.DefaultTestURL = url
+	}
 }
 
 func currentTestURL() string {
@@ -96,12 +103,67 @@ func handleTestDelay(params *TestDelayParams) *Delay {
 
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
-	delay, err := proxy.URLTest(ctx, url, anyDelayTestStatus)
+	var delay uint16
+	var err error
+	if isTCPPingURL(url) {
+		if isUDPNativeProxy(proxy) {
+			// Hysteria/TUIC listen on UDP — TCP to Addr always times out.
+			delay, err = proxy.URLTest(ctx, hysteriaProbeURL, anyDelayTestStatus)
+		} else {
+			delay, err = tcpPingNode(ctx, proxy)
+		}
+	} else {
+		delay, err = proxy.URLTest(ctx, url, anyDelayTestStatus)
+	}
 	if err != nil {
 		delay = 0
 	}
 	result.Value = delayValue(delay, ctx.Err() != nil)
 	return result
+}
+
+const hysteriaProbeURL = "https://cp.cloudflare.com/generate_204"
+
+func isTCPPingURL(url string) bool {
+	return strings.HasPrefix(strings.ToLower(url), "tcp://")
+}
+
+func isUDPNativeProxy(proxy constant.Proxy) bool {
+	switch proxy.Type() {
+	case constant.Hysteria, constant.Hysteria2, constant.Tuic:
+		return true
+	default:
+		n := strings.ToUpper(proxy.Name())
+		return strings.Contains(n, "HY2") ||
+			strings.Contains(n, "HYSTERIA") ||
+			strings.Contains(n, "TUIC")
+	}
+}
+
+// tcpPingNode dials the outbound's own server host:port — no tunnel, no HTTP.
+func tcpPingNode(ctx context.Context, proxy constant.Proxy) (uint16, error) {
+	addr := strings.TrimSpace(proxy.Addr())
+	if addr == "" {
+		return 0, fmt.Errorf("proxy %q has empty Addr", proxy.Name())
+	}
+	if _, _, err := net.SplitHostPort(addr); err != nil {
+		addr = net.JoinHostPort(addr, "443")
+	}
+	start := time.Now()
+	var d net.Dialer
+	conn, err := d.DialContext(ctx, "tcp", addr)
+	if err != nil {
+		return 0, err
+	}
+	_ = conn.Close()
+	ms := time.Since(start) / time.Millisecond
+	if ms <= 0 {
+		return 1, nil
+	}
+	if ms > 0xffff {
+		return 0xffff, nil
+	}
+	return uint16(ms), nil
 }
 
 type testTimeoutProvider interface {

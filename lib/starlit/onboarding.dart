@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:fl_clash/starlit/prefs.dart';
-import 'package:fl_clash/starlit/theme.dart';
-import 'package:fl_clash/starlit/widgets.dart';
+import 'package:starlit_connect/starlit/prefs.dart';
+import 'package:starlit_connect/starlit/theme.dart';
+import 'package:starlit_connect/starlit/widgets.dart';
 import 'package:flutter/widgets.dart';
 
 class StarlitOnboarding extends StatefulWidget {

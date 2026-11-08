@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:fl_clash/ui/qr_code.dart';
-import 'package:fl_clash/ui/qr_matrix.dart';
+import 'package:starlit_connect/ui/qr_code.dart';
+import 'package:starlit_connect/ui/qr_matrix.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:prism_ui/prism_ui.dart';

@@ -1,7 +1,7 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/models/common.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
+import 'package:starlit_connect/models/common.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/widgets.dart';
 
 class BatchInput<T> {

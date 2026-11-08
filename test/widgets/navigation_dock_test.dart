@@ -1,15 +1,15 @@
 import 'dart:math' as math;
 import 'dart:typed_data';
 
-import 'package:fl_clash/common/app_ports.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/pages/home.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/views/navigation.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:starlit_connect/common/app_ports.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/pages/home.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/state.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
+import 'package:starlit_connect/views/navigation.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';

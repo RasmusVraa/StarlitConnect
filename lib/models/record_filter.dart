@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:fl_clash/enum/enum.dart';
+import 'package:starlit_connect/enum/enum.dart';
 import 'package:flutter/foundation.dart';
 
 const recordFacetMaxOptions = 12;

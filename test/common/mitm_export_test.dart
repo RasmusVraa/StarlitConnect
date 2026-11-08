@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:fl_clash/common/mitm_export.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/common/mitm_export.dart';
+import 'package:starlit_connect/models/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 final _exchange = MitmExchange(

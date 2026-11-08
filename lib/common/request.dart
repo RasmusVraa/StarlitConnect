@@ -5,10 +5,11 @@ import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/plugins/app.dart';
-import 'package:fl_clash/state.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/plugins/app.dart';
+import 'package:starlit_connect/starlit/hwid.dart';
+import 'package:starlit_connect/state.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:path/path.dart' show join;
 
@@ -59,13 +60,19 @@ class Request {
     return FlClashHttpOverrides.findProxyForReader(read, uri);
   }
 
-  Future<Response<T>> _download<T>(String url, ResponseType responseType) {
+  Future<Response<T>> _download<T>(String url, ResponseType responseType) async {
     final target = downloadTarget(url);
     final cancelToken = CancelToken();
+    // Remnawave регистрирует устройство только при x-hwid на запросе подписки.
+    final remna = await StarlitHwid.remnawaveHeaders();
+    final headers = <String, Object>{
+      ...remna,
+      ...target.headers,
+    };
     return _clashDio
         .getUri<T>(
           target.uri,
-          options: Options(responseType: responseType, headers: target.headers),
+          options: Options(responseType: responseType, headers: headers),
           cancelToken: cancelToken,
         )
         .timeout(

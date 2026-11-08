@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/ui/list_item.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
+import 'package:starlit_connect/ui/list_item.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod/misc.dart' show ProviderListenable;

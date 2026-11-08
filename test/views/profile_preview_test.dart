@@ -1,9 +1,9 @@
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/models/profile.dart';
-import 'package:fl_clash/pages/editor.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/views/profiles/preview.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
+import 'package:starlit_connect/models/profile.dart';
+import 'package:starlit_connect/pages/editor.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/state.dart';
+import 'package:starlit_connect/views/profiles/preview.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

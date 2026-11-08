@@ -1,4 +1,4 @@
-import 'package:fl_clash/common/common.dart';
+import 'package:starlit_connect/common/common.dart';
 import 'package:flutter/services.dart';
 
 class BatteryOptimization {

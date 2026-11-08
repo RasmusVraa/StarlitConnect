@@ -1,9 +1,9 @@
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/views/proxies/card.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/state.dart';
+import 'package:starlit_connect/views/proxies/card.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

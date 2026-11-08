@@ -3,7 +3,7 @@ import 'dart:ffi' show Abi;
 import 'dart:io';
 
 import 'package:crypto/crypto.dart';
-import 'package:fl_clash/common/app_update.dart';
+import 'package:starlit_connect/common/app_update.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

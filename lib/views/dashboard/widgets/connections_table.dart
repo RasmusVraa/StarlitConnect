@@ -1,18 +1,18 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/core/controller.dart';
-import 'package:fl_clash/core/method.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/features/features.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/providers/core.dart';
-import 'package:fl_clash/views/connection/requests.dart';
-import 'package:fl_clash/views/dashboard/layout.dart';
-import 'package:fl_clash/views/dashboard/style.dart';
-import 'package:fl_clash/views/dns_queries.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/core/controller.dart';
+import 'package:starlit_connect/core/method.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/features/features.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/app.dart';
+import 'package:starlit_connect/providers/core.dart';
+import 'package:starlit_connect/views/connection/requests.dart';
+import 'package:starlit_connect/views/dashboard/layout.dart';
+import 'package:starlit_connect/views/dashboard/style.dart';
+import 'package:starlit_connect/views/dns_queries.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

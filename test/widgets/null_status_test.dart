@@ -1,6 +1,6 @@
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/ui/null_status_illustration.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
+import 'package:starlit_connect/providers/app.dart';
+import 'package:starlit_connect/ui/null_status_illustration.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:prism_ui/prism_ui.dart';

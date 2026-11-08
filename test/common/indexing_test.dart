@@ -1,4 +1,4 @@
-import 'package:fl_clash/common/indexing.dart';
+import 'package:starlit_connect/common/indexing.dart';
 import 'package:test/test.dart';
 
 void main() {

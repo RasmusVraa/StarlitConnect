@@ -1,8 +1,8 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/views/dashboard/layout.dart';
-import 'package:fl_clash/views/dashboard/widgets/update_status.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/state.dart';
+import 'package:starlit_connect/views/dashboard/layout.dart';
+import 'package:starlit_connect/views/dashboard/widgets/update_status.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

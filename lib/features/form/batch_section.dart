@@ -1,5 +1,5 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
 import 'package:flutter/widgets.dart';
 
 /// A form's batch mode: one field of lines, and how many of them it adds.

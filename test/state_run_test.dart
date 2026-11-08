@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/providers/database.dart';
-import 'package:fl_clash/state.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/providers/app.dart';
+import 'package:starlit_connect/providers/database.dart';
+import 'package:starlit_connect/state.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

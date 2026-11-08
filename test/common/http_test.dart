@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/common/http.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/providers/config.dart';
+import 'package:starlit_connect/common/constant.dart';
+import 'package:starlit_connect/common/http.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/app.dart';
+import 'package:starlit_connect/providers/config.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:riverpod/riverpod.dart';
 

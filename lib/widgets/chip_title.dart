@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/widgets.dart';
 
 class ExpireChip extends StatelessWidget {

@@ -1,10 +1,10 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/manager/window_manager.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
+import 'package:starlit_connect/manager/window_manager.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/state.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';

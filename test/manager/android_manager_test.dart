@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-import 'package:fl_clash/manager/android_manager.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/plugins/service.dart';
-import 'package:fl_clash/providers/action.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/providers/database.dart';
-import 'package:fl_clash/providers/state.dart';
-import 'package:fl_clash/state.dart';
+import 'package:starlit_connect/manager/android_manager.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/plugins/service.dart';
+import 'package:starlit_connect/providers/action.dart';
+import 'package:starlit_connect/providers/config.dart';
+import 'package:starlit_connect/providers/database.dart';
+import 'package:starlit_connect/providers/state.dart';
+import 'package:starlit_connect/state.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

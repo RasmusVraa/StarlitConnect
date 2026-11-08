@@ -1,9 +1,9 @@
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/features/form/form.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/features/form/form.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/app.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';

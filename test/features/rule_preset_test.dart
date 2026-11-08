@@ -1,7 +1,7 @@
-import 'package:fl_clash/features/form/rule_preset.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/models/clash_config.dart';
-import 'package:fl_clash/providers/app.dart';
+import 'package:starlit_connect/features/form/rule_preset.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
+import 'package:starlit_connect/models/clash_config.dart';
+import 'package:starlit_connect/providers/app.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 

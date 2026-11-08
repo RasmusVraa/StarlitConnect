@@ -5,9 +5,9 @@ import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/common/exception.dart';
-import 'package:fl_clash/common/request.dart';
+import 'package:starlit_connect/common/constant.dart';
+import 'package:starlit_connect/common/exception.dart';
+import 'package:starlit_connect/common/request.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class _StalledHttpClient extends Fake implements HttpClient {

@@ -1,4 +1,4 @@
-import 'package:fl_clash/widgets/palette.dart';
+import 'package:starlit_connect/widgets/palette.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 

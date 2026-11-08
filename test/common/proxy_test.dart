@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/proxy.dart';
-import 'package:fl_clash/models/models.dart' show ProxyState;
+import 'package:starlit_connect/common/proxy.dart';
+import 'package:starlit_connect/models/models.dart' show ProxyState;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:proxy/proxy.dart';
 

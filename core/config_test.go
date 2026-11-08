@@ -524,6 +524,29 @@ func TestSetTestURLIgnoresAnEmptyValue(t *testing.T) {
 	}
 }
 
+func TestSetTestURLKeepsHTTPDefaultForTCPPing(t *testing.T) {
+	const httpURL = "https://example.test/generate_204"
+	previousDefault := constant.DefaultTestURL
+	previousStored := testURL.Load()
+	t.Cleanup(func() {
+		constant.DefaultTestURL = previousDefault
+		testURL.Store(previousStored)
+	})
+
+	setTestURL(httpURL)
+	setTestURL("tcp://node")
+
+	if constant.DefaultTestURL != httpURL {
+		t.Errorf("DefaultTestURL = %q, tcp ping must not replace mihomo URLTest default", constant.DefaultTestURL)
+	}
+	if got := currentTestURL(); got != "tcp://node" {
+		t.Errorf("currentTestURL() = %q, want tcp ping URL", got)
+	}
+	if !isTCPPingURL(currentTestURL()) {
+		t.Error("currentTestURL should be detected as tcp ping")
+	}
+}
+
 func TestTestDelayRejectsAnUnknownProxyWithoutWaitingForASlot(t *testing.T) {
 	for i := 0; i < delayTestConcurrency; i++ {
 		delayTestSlots <- struct{}{}

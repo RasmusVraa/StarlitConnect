@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';

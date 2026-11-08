@@ -3,10 +3,10 @@ import 'dart:io';
 
 import 'package:collection/collection.dart';
 import 'package:crypto/crypto.dart';
-import 'package:fl_clash/common/string.dart';
-import 'package:fl_clash/common/yaml.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/common/string.dart';
+import 'package:starlit_connect/common/yaml.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/models.dart';
 import 'package:path/path.dart' as p;
 
 enum MitmModuleArgumentType { input, select, toggle }

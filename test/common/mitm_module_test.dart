@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:fl_clash/common/mitm_module.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/common/mitm_module.dart';
+import 'package:starlit_connect/models/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 const _surge = r'''

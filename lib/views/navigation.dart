@@ -1,8 +1,8 @@
-import 'package:fl_clash/common/app_ports.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/ui/icons/app_glyphs.dart';
-import 'package:fl_clash/views/views.dart';
+import 'package:starlit_connect/common/app_ports.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/ui/icons/app_glyphs.dart';
+import 'package:starlit_connect/views/views.dart';
 
 class Navigation implements NavigationPort {
   static Navigation? _instance;

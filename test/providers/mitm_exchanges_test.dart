@@ -1,8 +1,8 @@
-import 'package:fl_clash/core/controller.dart';
-import 'package:fl_clash/core/interface.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/core.dart';
-import 'package:fl_clash/providers/mitm.dart';
+import 'package:starlit_connect/core/controller.dart';
+import 'package:starlit_connect/core/interface.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/core.dart';
+import 'package:starlit_connect/providers/mitm.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

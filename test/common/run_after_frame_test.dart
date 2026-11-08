@@ -1,4 +1,4 @@
-import 'package:fl_clash/common/function.dart';
+import 'package:starlit_connect/common/function.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 

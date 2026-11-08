@@ -2,13 +2,13 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io' show PathNotFoundException;
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/features/editor/editor.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/features/editor/editor.dart';
+import 'package:starlit_connect/providers/config.dart';
+import 'package:starlit_connect/state.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
@@ -36,7 +36,7 @@ import 'package:re_highlight/styles/atom-one-light.dart';
 import 'package:rust_api/rust_api.dart' show isRustLibInitialized;
 
 export 'package:code_forge/code_forge.dart' show CodeForgeDocument;
-export 'package:fl_clash/features/editor/editor.dart'
+export 'package:starlit_connect/features/editor/editor.dart'
     show EditorSchema, readRelaxed;
 
 /// Whether `main` initialised `RustLib`, which a test that needs it missing

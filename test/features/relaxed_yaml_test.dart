@@ -1,7 +1,7 @@
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/features/editor/clash_schema.dart';
-import 'package:fl_clash/features/editor/relaxed_yaml.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/features/editor/clash_schema.dart';
+import 'package:starlit_connect/features/editor/relaxed_yaml.dart';
+import 'package:starlit_connect/models/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yaml/yaml.dart';
 

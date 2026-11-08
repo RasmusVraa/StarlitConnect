@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:drift/native.dart';
 // `Profiles`, `Scripts` and `ProxyGroups` name both a drift table and a
 // notifier, so the schema side is imported behind a prefix.
-import 'package:fl_clash/database/database.dart' as db;
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/database.dart';
+import 'package:starlit_connect/database/database.dart' as db;
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/database.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show ProviderListenable;

@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:dio/dio.dart';
-import 'package:fl_clash/common/boot_record.dart';
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/common/exception.dart';
-import 'package:fl_clash/plugins/app.dart';
+import 'package:starlit_connect/common/boot_record.dart';
+import 'package:starlit_connect/common/constant.dart';
+import 'package:starlit_connect/common/exception.dart';
+import 'package:starlit_connect/plugins/app.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 

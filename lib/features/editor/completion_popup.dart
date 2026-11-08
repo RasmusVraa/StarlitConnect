@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:code_forge/code_forge.dart' show CodeForgeSuggestionDetails;
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/widgets.dart';
 
 const _suggestionInset = 8.0;

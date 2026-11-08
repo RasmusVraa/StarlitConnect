@@ -1,5 +1,5 @@
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/widgets/config_item.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
+import 'package:starlit_connect/widgets/config_item.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 

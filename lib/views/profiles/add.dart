@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/features/form/form.dart';
-import 'package:fl_clash/pages/scan.dart';
-import 'package:fl_clash/plugins/app.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/views/profiles/custom/custom.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/features/form/form.dart';
+import 'package:starlit_connect/pages/scan.dart';
+import 'package:starlit_connect/plugins/app.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
+import 'package:starlit_connect/views/profiles/custom/custom.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

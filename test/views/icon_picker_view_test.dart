@@ -1,11 +1,11 @@
 import 'package:drift/native.dart';
-import 'package:fl_clash/database/database.dart' hide IconSets;
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/views/profiles/custom/icon.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:starlit_connect/database/database.dart' hide IconSets;
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/state.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
+import 'package:starlit_connect/views/profiles/custom/icon.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

@@ -1,4 +1,4 @@
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:prism_ui/icons/icons.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';

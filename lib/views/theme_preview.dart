@@ -1,9 +1,9 @@
 import 'dart:math' as math;
 
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/providers/state.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/providers/config.dart';
+import 'package:starlit_connect/providers/state.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:prism_ui/prism_ui.dart';

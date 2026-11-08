@@ -1,5 +1,5 @@
-import 'package:fl_clash/common/boot_guard.dart';
-import 'package:fl_clash/common/boot_record.dart';
+import 'package:starlit_connect/common/boot_guard.dart';
+import 'package:starlit_connect/common/boot_record.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class _RecordStore {

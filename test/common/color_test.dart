@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:fl_clash/ui/delay_color.dart';
+import 'package:starlit_connect/ui/delay_color.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:prism_ui/hct/dynamic_color.dart';

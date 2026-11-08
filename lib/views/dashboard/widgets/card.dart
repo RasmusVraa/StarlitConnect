@@ -1,11 +1,11 @@
 import 'dart:math' as math;
 import 'dart:ui' show lerpDouble;
 
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/views/dashboard/layout.dart';
-import 'package:fl_clash/views/dashboard/style.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:starlit_connect/state.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
+import 'package:starlit_connect/views/dashboard/layout.dart';
+import 'package:starlit_connect/views/dashboard/style.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:prism_ui/shapes/shapes.dart';

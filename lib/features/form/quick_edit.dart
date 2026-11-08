@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/pages/editor.dart';
-import 'package:fl_clash/widgets/widgets.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/pages/editor.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
 import 'package:flutter/widgets.dart';
 
 IconButtonData customQuickEditAction(

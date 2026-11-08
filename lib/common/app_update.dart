@@ -4,9 +4,9 @@ import 'dart:io';
 import 'dart:isolate';
 
 import 'package:crypto/crypto.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/plugins/app.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/plugins/app.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:flutter/services.dart' show PlatformException;
 import 'package:path/path.dart';
@@ -100,9 +100,20 @@ Future<void> clearUpdateDownloads() async {
   }
 }
 
-// Inno Setup writes unins000.exe beside the app; the portable zip has none.
+// Inno Setup writes unins000.exe (sometimes unins001.exe) beside the app;
+// the portable zip has none.
 bool get isInstalledWindowsBuild {
-  return File(join(appPath.executableDirPath, 'unins000.exe')).existsSync();
+  final dir = Directory(appPath.executableDirPath);
+  if (!dir.existsSync()) return false;
+  try {
+    return dir.listSync().any((entity) {
+      if (entity is! File) return false;
+      final name = basename(entity.path).toLowerCase();
+      return name.startsWith('unins') && name.endsWith('.exe');
+    });
+  } on FileSystemException {
+    return File(join(appPath.executableDirPath, 'unins000.exe')).existsSync();
+  }
 }
 
 // inno_setup.iss waits for `updatefrom` to exit, then relaunches the app.

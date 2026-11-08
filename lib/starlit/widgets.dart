@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:fl_clash/starlit/theme.dart';
+import 'package:starlit_connect/starlit/space_backdrop.dart';
+import 'package:starlit_connect/starlit/theme.dart';
 import 'package:flutter/widgets.dart';
 
 class StarlitScaffold extends StatelessWidget {
@@ -19,16 +20,27 @@ class StarlitScaffold extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              if (glow)
+              const StarlitSpaceBackdrop(),
+              if (glow) ...[
                 const DecoratedBox(
                   decoration: BoxDecoration(
                     gradient: RadialGradient(
-                      center: Alignment(-0.6, -0.8),
-                      radius: 1.1,
-                      colors: [Color(0x2856C2D6), Color(0x0005070D)],
+                      center: Alignment(-0.9, -0.95),
+                      radius: 0.85,
+                      colors: [Color(0x18E891C4), Color(0x00E891C4)],
                     ),
                   ),
                 ),
+                const DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                      center: Alignment(1.05, 1.05),
+                      radius: 0.85,
+                      colors: [Color(0x14B794E8), Color(0x00B794E8)],
+                    ),
+                  ),
+                ),
+              ],
               child,
             ],
           ),
@@ -57,22 +69,39 @@ class StarlitCard extends StatelessWidget {
     final box = AnimatedContainer(
       duration: const Duration(milliseconds: 180),
       padding: padding,
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-        color: highlighted ? StarlitColors.cardHi : StarlitColors.card,
         borderRadius: BorderRadius.circular(StarlitRadii.card),
-        border: Border.all(
-          color: highlighted ? StarlitColors.accent.withValues(alpha: 0.55) : StarlitColors.stroke,
-          width: highlighted ? 1.6 : 1,
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: highlighted
+              ? const [Color(0xCC34283F), Color(0xBB221B2E), Color(0xB31A1424)]
+              : const [Color(0xC22B2236), Color(0xB81E1828), Color(0xB016111F)],
         ),
-        boxShadow: highlighted
-            ? [
-                BoxShadow(
-                  color: StarlitColors.accent.withValues(alpha: 0.12),
-                  blurRadius: 22,
-                  spreadRadius: 1,
-                ),
-              ]
-            : null,
+        border: Border.all(
+          color: highlighted
+              ? StarlitColors.accent.withValues(alpha: 0.5)
+              : const Color(0x44FFFFFF),
+          width: highlighted ? 1.4 : 1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0x55000000),
+            blurRadius: highlighted ? 28 : 18,
+            offset: const Offset(0, 10),
+          ),
+          if (highlighted)
+            BoxShadow(
+              color: StarlitColors.accent.withValues(alpha: 0.16),
+              blurRadius: 24,
+            ),
+          const BoxShadow(
+            color: Color(0x14FFFFFF),
+            blurRadius: 0,
+            offset: Offset(0, -0.5),
+          ),
+        ],
       ),
       child: child,
     );
@@ -107,7 +136,7 @@ class StarlitPrimaryButton extends StatelessWidget {
         if (icon != null) ...[icon!, const SizedBox(width: 10)],
         StarlitText(
           label,
-          color: const Color(0xFF041018),
+          color: const Color(0xFF1A1020),
           size: 15,
           weight: FontWeight.w700,
         ),
@@ -128,7 +157,7 @@ class StarlitPrimaryButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(StarlitRadii.pill),
-              gradient: const LinearGradient(
+              gradient: LinearGradient(
                 colors: [StarlitColors.accent, StarlitColors.accentDeep],
               ),
               boxShadow: [
@@ -223,7 +252,7 @@ class StarlitGlowIcon extends StatelessWidget {
             height: size,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: const LinearGradient(
+              gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [StarlitColors.accent, StarlitColors.accentDeep],
@@ -289,23 +318,51 @@ class StarlitToggle extends StatelessWidget {
           padding: const EdgeInsets.all(3),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: value ? StarlitColors.accent : StarlitColors.stroke,
+            gradient: value
+                ? LinearGradient(
+                    colors: [StarlitColors.accentDeep, StarlitColors.accent],
+                  )
+                : const LinearGradient(
+                    colors: [Color(0xFF3A3145), Color(0xFF221B2E)],
+                  ),
+            border: Border.all(
+              color: value
+                  ? StarlitColors.accent.withValues(alpha: 0.45)
+                  : const Color(0x33FFFFFF),
+            ),
             boxShadow: value
                 ? [
                     BoxShadow(
-                      color: StarlitColors.accent.withValues(alpha: 0.35),
-                      blurRadius: 10,
+                      color: StarlitColors.accent.withValues(alpha: 0.33),
+                      blurRadius: 12,
                     ),
                   ]
-                : null,
+                : const [
+                    BoxShadow(
+                      color: Color(0x44000000),
+                      blurRadius: 6,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
           ),
           alignment: value ? Alignment.centerRight : Alignment.centerLeft,
           child: Container(
             width: 22,
             height: 22,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: StarlitColors.text,
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xFFFFFFFF), Color(0xFFD8D0E0)],
+              ),
+              boxShadow: const [
+                BoxShadow(
+                  color: Color(0x66000000),
+                  blurRadius: 4,
+                  offset: Offset(0, 1),
+                ),
+              ],
             ),
           ),
         ),
@@ -384,7 +441,7 @@ class StarlitMoonMark extends StatelessWidget {
         shape: BoxShape.circle,
         gradient: muted
             ? null
-            : const LinearGradient(
+            : LinearGradient(
                 colors: [StarlitColors.accent, StarlitColors.accentDeep],
               ),
         color: muted ? StarlitColors.stroke : null,
@@ -440,6 +497,7 @@ class StarlitSectionTitle extends StatelessWidget {
           title,
           size: 30,
           weight: FontWeight.w800,
+          display: true,
         ),
         if (subtitle != null) ...[
           const SizedBox(height: 8),

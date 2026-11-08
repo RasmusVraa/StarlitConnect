@@ -54,12 +54,28 @@ class SystemAction extends _$SystemAction {
         );
       });
     }
+    // Always tear down Starlit Xray + Windows system proxy first. Leaving
+    // WinINET pointed at a dead mixed port breaks Happ and other clients
+    // until reboot.
+    await _shutdownStarlitEngine();
     await Future.wait([
       ?saveOperation,
       bootGuard.markClosed(),
       if (systemDnsCoordinator != null) systemDnsCoordinator!.shutdown(),
       ?systemProxyQueue?.close(),
+      StarlitSystemProxy.forceDisable(),
     ]);
+  }
+
+  Future<void> _shutdownStarlitEngine() async {
+    try {
+      await ref.read(starlitEngineProvider).disconnect();
+    } catch (error) {
+      commonPrint.log(
+        'Starlit engine disconnect failed: ${compactError(error)}',
+        logLevel: LogLevel.warning,
+      );
+    }
   }
 
   Future<void> _savePreferencesSafely() async {

@@ -1,8 +1,8 @@
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/common/print.dart';
-import 'package:fl_clash/common/system.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart' show ProxyState;
+import 'package:starlit_connect/common/constant.dart';
+import 'package:starlit_connect/common/print.dart';
+import 'package:starlit_connect/common/system.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/models.dart' show ProxyState;
 import 'package:proxy/proxy.dart';
 
 final proxy = system.isDesktop && !safeModeBuild ? Proxy() : null;

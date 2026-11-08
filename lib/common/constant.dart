@@ -4,9 +4,9 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:collection/collection.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/models.dart';
 import 'package:flutter/widgets.dart';
 
 const appName = 'StarlitConnect';
@@ -19,11 +19,7 @@ final unixSocketPath = '/tmp/FlClashSocket_${Random().nextInt(10000)}.sock';
 final windowsPipeName = '\\\\.\\pipe\\FlClashCore_${_randomPipeId()}';
 const supportUrl = 'https://t.me/starlitvpnbot';
 const websiteUrl = 'https://internet.starlit-moon.ru';
-const cabinetUrl = 'https://cabinet.starlit-moon.ru';
-/// Cabinet OIDC start — site redirects to oauth.telegram.org (bot auth).
-const telegramAuthUrl =
-    'https://internet.starlit-moon.ru/cabinet/api/auth/telegram/start';
-const cabinetLoginUrl = 'https://internet.starlit-moon.ru/login';
+const cabinetUrl = 'https://internet.starlit-moon.ru/cabinet';
 const subscriptionHost = 'sub.starlit-moon.ru';
 const helperPort = 47890;
 const helperPortKey =
@@ -181,7 +177,7 @@ const proxiesListStoreKey = PageStorageKey<String>('proxies_list');
 const toolsStoreKey = PageStorageKey<String>('tools');
 const profilesStoreKey = PageStorageKey<String>('profiles');
 
-const defaultPrimaryColor = 0xFF5AD0E6;
+const defaultPrimaryColor = 0xFFE891C4;
 
 const maxLogsLength = 5000;
 const maxRequestsLength = 2000;

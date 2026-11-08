@@ -1,21 +1,20 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:fl_clash/common/boot_guard.dart';
-import 'package:fl_clash/common/boot_record.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/common/launch.dart';
-import 'package:fl_clash/common/migration.dart';
-import 'package:fl_clash/common/tray.dart';
-import 'package:fl_clash/common/window.dart';
-import 'package:fl_clash/database/database.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/views/disclaimer.dart';
-import 'package:fl_clash/views/navigation.dart';
+import 'package:starlit_connect/common/boot_guard.dart';
+import 'package:starlit_connect/common/boot_record.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/common/launch.dart';
+import 'package:starlit_connect/common/migration.dart';
+import 'package:starlit_connect/common/tray.dart';
+import 'package:starlit_connect/common/window.dart';
+import 'package:starlit_connect/database/database.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/state.dart';
+import 'package:starlit_connect/views/navigation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:dynamic_color/dynamic_color.dart';
@@ -149,9 +148,6 @@ class Bootstrap {
 
   Future<void> _initApp() async {
     unawaited(_container.read(systemActionProvider.notifier).updateTray());
-    unawaited(
-      _container.read(profilesActionProvider.notifier).autoUpdateProfiles(),
-    );
     unawaited(clearUpdateDownloads());
     unawaited(_container.read(commonActionProvider.notifier).autoCheckUpdate());
     unawaited(
@@ -163,19 +159,24 @@ class Bootstrap {
       unawaited(window?.hide());
     }
     await _handleFailedPreference();
-    if (!await _handlerDisclaimer()) {
-      return;
-    }
+    // Starlit ships Xray via lib/engine — skip FlClash disclaimer + mihomo core.
+    _acceptDisclaimerSilently();
     await _showCrashRecoveryTip();
-    await _container.read(coreActionProvider.notifier).startCore();
-    if (!_bootDecision.isDegraded) {
-      await _container.read(setupActionProvider.notifier).initStatus();
-    }
     _container.read(initProvider.notifier).value = true;
-    unawaited(_container.read(resourcesActionProvider.notifier).autoUpdate());
-    unawaited(_container.read(mitmModulesActionProvider.notifier).autoUpdate());
     await bootGuard.markRunning();
-    unawaited(_container.read(locationPermissionsProvider.notifier).refresh());
+  }
+
+  void _acceptDisclaimerSilently() {
+    final accepted = _container.read(
+      appSettingProvider.select((s) => s.acceptedDisclaimerVersion),
+    );
+    if (accepted >= disclaimerVersion) return;
+    _container
+        .read(appSettingProvider.notifier)
+        .update(
+          (state) =>
+              state.copyWith(acceptedDisclaimerVersion: disclaimerVersion),
+        );
   }
 
   Future<void> _showCrashRecoveryTip() async {
@@ -222,35 +223,6 @@ class Bootstrap {
     await _container.read(systemActionProvider.notifier).handleExit(false);
   }
 
-  /// Unattended desktop installs, such as a container nobody watches, accept
-  /// up front: the core only starts after the disclaimer is accepted.
-  bool get _isDisclaimerAcceptedByEnvironment =>
-      system.isDesktop &&
-      Platform.environment['FLCLASH_ACCEPT_DISCLAIMER'] == '1';
-
-  /// Android's exit only finishes the activity, so Dart keeps running after
-  /// [SystemAction.handleExit] returns and must not go on to start the app.
-  Future<bool> _handlerDisclaimer() async {
-    final acceptedVersion = _container.read(
-      appSettingProvider.select((state) => state.acceptedDisclaimerVersion),
-    );
-    if (acceptedVersion >= disclaimerVersion) {
-      return true;
-    }
-    final isDisclaimerAccepted =
-        _isDisclaimerAcceptedByEnvironment || await requestDisclaimerConsent();
-    if (!isDisclaimerAccepted) {
-      await _container.read(systemActionProvider.notifier).handleExit();
-      return false;
-    }
-    _container
-        .read(appSettingProvider.notifier)
-        .update(
-          (state) =>
-              state.copyWith(acceptedDisclaimerVersion: disclaimerVersion),
-        );
-    return true;
-  }
 }
 
 final bootstrap = Bootstrap();

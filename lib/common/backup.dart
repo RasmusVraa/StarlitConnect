@@ -4,11 +4,11 @@ import 'dart:io';
 import 'package:archive/archive_io.dart';
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/common/migration.dart';
-import 'package:fl_clash/common/mitm_module.dart';
-import 'package:fl_clash/database/database.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/common/migration.dart';
+import 'package:starlit_connect/common/mitm_module.dart';
+import 'package:starlit_connect/database/database.dart';
+import 'package:starlit_connect/models/models.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 

@@ -1,4 +1,4 @@
-import 'package:fl_clash/common/constant.dart';
+import 'package:starlit_connect/common/constant.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

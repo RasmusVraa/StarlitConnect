@@ -1,16 +1,16 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/core/core.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/action.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/providers/core.dart';
-import 'package:fl_clash/providers/database.dart';
-import 'package:fl_clash/providers/route_state.dart';
-import 'package:fl_clash/providers/state.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/core/core.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/action.dart';
+import 'package:starlit_connect/providers/app.dart';
+import 'package:starlit_connect/providers/config.dart';
+import 'package:starlit_connect/providers/core.dart';
+import 'package:starlit_connect/providers/database.dart';
+import 'package:starlit_connect/providers/route_state.dart';
+import 'package:starlit_connect/providers/state.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:prism_ui/banner.dart';

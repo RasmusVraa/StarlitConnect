@@ -1,6 +1,6 @@
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/views/proxies/common.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/views/proxies/common.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Group _group(String name) => Group(type: GroupType.Selector, name: name);

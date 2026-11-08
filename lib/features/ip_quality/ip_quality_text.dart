@@ -1,7 +1,7 @@
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/providers/ip_quality.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/config.dart';
+import 'package:starlit_connect/providers/ip_quality.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

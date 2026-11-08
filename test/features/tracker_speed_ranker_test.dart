@@ -1,5 +1,5 @@
-import 'package:fl_clash/features/connection/tracker_speed_ranker.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/features/connection/tracker_speed_ranker.dart';
+import 'package:starlit_connect/models/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 TrackerInfo _tracker(

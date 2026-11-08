@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/plugins/battery.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/providers/on_demand.dart';
+import 'package:starlit_connect/common/constant.dart';
+import 'package:starlit_connect/plugins/battery.dart';
+import 'package:starlit_connect/providers/app.dart';
+import 'package:starlit_connect/providers/config.dart';
+import 'package:starlit_connect/providers/on_demand.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:riverpod/riverpod.dart';

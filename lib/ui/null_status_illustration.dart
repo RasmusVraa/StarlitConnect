@@ -1,4 +1,4 @@
-import 'package:fl_clash/ui/icons/app_glyphs.dart';
+import 'package:starlit_connect/ui/icons/app_glyphs.dart';
 import 'package:prism_ui/icons/glyph.dart';
 import 'package:prism_ui/null_status.dart';
 

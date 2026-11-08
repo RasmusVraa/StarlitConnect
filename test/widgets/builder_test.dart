@@ -1,4 +1,4 @@
-import 'package:fl_clash/widgets/active_polling.dart';
+import 'package:starlit_connect/widgets/active_polling.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:prism_ui/builder.dart';

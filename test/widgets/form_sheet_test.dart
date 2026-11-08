@@ -1,6 +1,6 @@
-import 'package:fl_clash/features/form/form.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/features/form/form.dart';
+import 'package:starlit_connect/providers/app.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 

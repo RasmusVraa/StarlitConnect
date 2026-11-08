@@ -1,5 +1,5 @@
-import 'package:fl_clash/common/cidr.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/common/cidr.dart';
+import 'package:starlit_connect/models/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

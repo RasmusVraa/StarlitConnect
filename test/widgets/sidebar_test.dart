@@ -1,4 +1,4 @@
-import 'package:fl_clash/ui/icons/icons.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';

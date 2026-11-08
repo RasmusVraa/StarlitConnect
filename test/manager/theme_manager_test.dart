@@ -1,6 +1,6 @@
-import 'package:fl_clash/manager/theme_manager.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/config.dart';
+import 'package:starlit_connect/manager/theme_manager.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/config.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

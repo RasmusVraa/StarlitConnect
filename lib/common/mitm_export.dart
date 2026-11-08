@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/common/mitm_body.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:starlit_connect/common/constant.dart';
+import 'package:starlit_connect/common/mitm_body.dart';
+import 'package:starlit_connect/models/models.dart';
 
 String _shellQuoted(String text) => "'${text.replaceAll("'", r"'\''")}'";
 

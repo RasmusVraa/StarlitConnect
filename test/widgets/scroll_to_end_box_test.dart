@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import '../helpers/host_scaffold.dart';

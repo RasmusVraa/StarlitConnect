@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:fl_clash/ui/icons/icons.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
 import 'package:flutter/gestures.dart' show PointerDeviceKind, kPressTimeout;
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';

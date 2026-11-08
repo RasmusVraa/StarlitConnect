@@ -1,9 +1,9 @@
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/common/exception.dart';
-import 'package:fl_clash/common/network_error.dart';
-import 'package:fl_clash/core/desktop/launch_policy.dart';
-import 'package:fl_clash/core/method.dart';
-import 'package:fl_clash/l10n/l10n.dart';
+import 'package:starlit_connect/common/constant.dart';
+import 'package:starlit_connect/common/exception.dart';
+import 'package:starlit_connect/common/network_error.dart';
+import 'package:starlit_connect/core/desktop/launch_policy.dart';
+import 'package:starlit_connect/core/method.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
 import 'package:flutter/widgets.dart';
 import 'package:prism_ui/l10n.dart';
 

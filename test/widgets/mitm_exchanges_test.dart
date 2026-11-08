@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/common/mitm_body.dart';
-import 'package:fl_clash/features/features.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/mitm.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/widgets/widgets.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/common/mitm_body.dart';
+import 'package:starlit_connect/features/features.dart';
+import 'package:starlit_connect/models/models.dart';
+import 'package:starlit_connect/providers/mitm.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/widgets/widgets.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

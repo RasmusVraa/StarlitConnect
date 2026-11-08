@@ -1,5 +1,5 @@
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/providers/app.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';

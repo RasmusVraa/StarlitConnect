@@ -2,14 +2,14 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:fl_clash/common/app_localizations.dart';
-import 'package:fl_clash/common/network_error.dart';
-import 'package:fl_clash/common/webdav.dart';
-import 'package:fl_clash/core/desktop/helper_client.dart';
-import 'package:fl_clash/core/desktop/launch_policy.dart';
-import 'package:fl_clash/core/desktop/model.dart';
-import 'package:fl_clash/core/method.dart';
-import 'package:fl_clash/l10n/l10n.dart';
+import 'package:starlit_connect/common/app_localizations.dart';
+import 'package:starlit_connect/common/network_error.dart';
+import 'package:starlit_connect/common/webdav.dart';
+import 'package:starlit_connect/core/desktop/helper_client.dart';
+import 'package:starlit_connect/core/desktop/launch_policy.dart';
+import 'package:starlit_connect/core/desktop/model.dart';
+import 'package:starlit_connect/core/method.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 

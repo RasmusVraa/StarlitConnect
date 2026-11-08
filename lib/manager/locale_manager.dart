@@ -1,4 +1,4 @@
-import 'package:fl_clash/providers/providers.dart';
+import 'package:starlit_connect/providers/providers.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

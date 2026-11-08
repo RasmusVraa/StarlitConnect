@@ -1,14 +1,14 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/ui.dart';
-import 'package:fl_clash/views/config/dns.dart';
-import 'package:fl_clash/views/config/filters.dart';
-import 'package:fl_clash/views/config/icon_sets.dart';
-import 'package:fl_clash/views/config/mitm.dart';
-import 'package:fl_clash/views/config/network.dart';
-import 'package:fl_clash/views/config/providers.dart';
-import 'package:fl_clash/views/config/scripts.dart';
-import 'package:fl_clash/views/profiles/custom/custom_proxies.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
+import 'package:starlit_connect/ui/ui.dart';
+import 'package:starlit_connect/views/config/dns.dart';
+import 'package:starlit_connect/views/config/filters.dart';
+import 'package:starlit_connect/views/config/icon_sets.dart';
+import 'package:starlit_connect/views/config/mitm.dart';
+import 'package:starlit_connect/views/config/network.dart';
+import 'package:starlit_connect/views/config/providers.dart';
+import 'package:starlit_connect/views/config/scripts.dart';
+import 'package:starlit_connect/views/profiles/custom/custom_proxies.dart';
 import 'package:flutter/widgets.dart';
 
 import 'rules.dart';

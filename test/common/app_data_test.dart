@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:drift/drift.dart';
-import 'package:fl_clash/common/app_data.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/database/database.dart' as db;
+import 'package:starlit_connect/common/app_data.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/database/database.dart' as db;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path/path.dart';
 

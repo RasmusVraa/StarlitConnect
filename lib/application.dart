@@ -2,18 +2,19 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:fl_clash/bootstrap.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/common/system_dns.dart';
-import 'package:fl_clash/common/window.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/manager/hotkey_manager.dart';
-import 'package:fl_clash/manager/manager.dart';
-import 'package:fl_clash/plugins/app.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/bootstrap.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/common/system_dns.dart';
+import 'package:starlit_connect/common/window.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/l10n/l10n.dart';
+import 'package:starlit_connect/manager/hotkey_manager.dart';
+import 'package:starlit_connect/manager/manager.dart';
+import 'package:starlit_connect/plugins/app.dart';
+import 'package:starlit_connect/engine/provider.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/state.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
@@ -31,20 +32,19 @@ Widget buildManagerStack({
   final platformApp = isDesktop
       ? WindowHeaderContainer(child: child)
       : VpnManager(child: child);
+  // Starlit uses Xray via lib/engine — do not mount CoreManager (mihomo).
   final state = AppStateManager(
-    child: CoreManager(
-      child: ConnectivityManager(
-        onConnectivityChanged: onConnectivityChanged,
-        child: platformApp,
-      ),
+    child: ConnectivityManager(
+      onConnectivityChanged: onConnectivityChanged,
+      child: platformApp,
     ),
   );
+  // Starlit owns system proxy via StarlitSystemProxy — do not mount
+  // ProxyManager (FlClash WinINET queue), or exit can leave a dead proxy.
   final platformState = isDesktop
       ? WindowManager(
           terminateSignals: terminateSignals,
-          child: TrayManager(
-            child: HotKeyManager(child: ProxyManager(child: state)),
-          ),
+          child: TrayManager(child: HotKeyManager(child: state)),
         )
       : AndroidManager(child: TileManager(child: state));
   return AppEnvManager(
@@ -109,16 +109,16 @@ class ApplicationState extends ConsumerState<Application> {
       );
       if (res != true) return;
       unawaited(
-        ref.read(profilesActionProvider.notifier).addProfileFromLink(url),
+        ref.read(starlitEngineProvider).importSubscription(url),
       );
     });
   }
 
   void _autoUpdateProfilesTask() {
     _autoUpdateProfilesTaskTimer = Timer(const Duration(minutes: 20), () async {
-      await ref.read(profilesActionProvider.notifier).autoUpdateProfiles();
-      await ref.read(resourcesActionProvider.notifier).autoUpdate();
-      await ref.read(mitmModulesActionProvider.notifier).autoUpdate();
+      try {
+        await ref.read(starlitEngineProvider).refreshSubscription();
+      } catch (_) {}
       if (!mounted) {
         return;
       }

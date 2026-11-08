@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/app_localizations.dart';
-import 'package:fl_clash/pages/scan.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
+import 'package:starlit_connect/common/app_localizations.dart';
+import 'package:starlit_connect/pages/scan.dart';
+import 'package:starlit_connect/providers/config.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

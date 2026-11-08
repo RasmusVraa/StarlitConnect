@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:fl_clash/core/desktop/transport.dart';
+import 'package:starlit_connect/core/desktop/transport.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../plugins/code_forge/support.dart' show initEditorNative;

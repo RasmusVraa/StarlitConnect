@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:fl_clash/enum/enum.dart';
+import 'package:starlit_connect/enum/enum.dart';
 
 /// A Core method by its wire name, `area.verb` as `core/protocol.go` names it.
 enum CoreMethod {

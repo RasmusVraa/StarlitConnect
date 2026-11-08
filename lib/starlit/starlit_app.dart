@@ -1,12 +1,12 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/starlit/auth.dart';
-import 'package:fl_clash/starlit/onboarding.dart';
-import 'package:fl_clash/starlit/prefs.dart';
-import 'package:fl_clash/starlit/shell.dart';
-import 'package:fl_clash/starlit/theme.dart';
+import 'package:starlit_connect/engine/provider.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/starlit/auth.dart';
+import 'package:starlit_connect/starlit/onboarding.dart';
+import 'package:starlit_connect/starlit/prefs.dart';
+import 'package:starlit_connect/starlit/shell.dart';
+import 'package:starlit_connect/starlit/theme.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:prism_ui/prism_ui.dart' show ThemeMode;
@@ -22,6 +22,7 @@ class StarlitApp extends ConsumerStatefulWidget {
 class _StarlitAppState extends ConsumerState<StarlitApp> {
   bool? _onboardingDone;
   var _forceAuth = false;
+  var _engineReady = false;
 
   @override
   void initState() {
@@ -30,21 +31,26 @@ class _StarlitAppState extends ConsumerState<StarlitApp> {
   }
 
   Future<void> _boot() async {
-    // Prefer dark night theme + Starlit accent on first paint.
+    final accent = starlitAccentById(await StarlitPrefs.accentId());
     ref.read(themeSettingProvider.notifier).update((state) {
       return state.copyWith(
         themeMode: ThemeMode.dark,
-        primaryColor: defaultPrimaryColor,
+        primaryColor: accent.color.toARGB32(),
       );
     });
+    StarlitColors.applyAccent(accent.color, accent.deep);
+    await ref.read(starlitEngineProvider).init();
     final done = await StarlitPrefs.onboardingDone();
     if (!mounted) return;
-    setState(() => _onboardingDone = done);
+    setState(() {
+      _onboardingDone = done;
+      _engineReady = true;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_onboardingDone == null) {
+    if (_onboardingDone == null || !_engineReady) {
       return const ColoredBox(color: StarlitColors.bg);
     }
     if (!_onboardingDone!) {
@@ -53,8 +59,8 @@ class _StarlitAppState extends ConsumerState<StarlitApp> {
       );
     }
 
-    final profiles = ref.watch(profilesProvider);
-    final needsAuth = _forceAuth || profiles.isEmpty;
+    final engine = ref.watch(starlitEngineProvider);
+    final needsAuth = _forceAuth || !engine.hasSession;
     if (needsAuth) {
       return StarlitAuthPage(
         onReady: () => setState(() => _forceAuth = false),

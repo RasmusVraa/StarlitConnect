@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/common/launch.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/config.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/ui/icons/icons.dart';
-import 'package:fl_clash/ui/ui.dart';
+import 'package:starlit_connect/common/common.dart';
+import 'package:starlit_connect/common/launch.dart';
+import 'package:starlit_connect/enum/enum.dart';
+import 'package:starlit_connect/models/config.dart';
+import 'package:starlit_connect/providers/providers.dart';
+import 'package:starlit_connect/ui/icons/icons.dart';
+import 'package:starlit_connect/ui/ui.dart';
 import 'package:flutter/foundation.dart' show ValueListenable;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

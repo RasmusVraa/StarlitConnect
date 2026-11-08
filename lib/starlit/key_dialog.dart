@@ -1,6 +1,6 @@
-import 'package:fl_clash/common/constant.dart';
-import 'package:fl_clash/starlit/theme.dart';
-import 'package:fl_clash/starlit/widgets.dart';
+import 'package:starlit_connect/common/constant.dart';
+import 'package:starlit_connect/starlit/theme.dart';
+import 'package:starlit_connect/starlit/widgets.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 

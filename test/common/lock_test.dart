@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:fl_clash/common/lock.dart';
-import 'package:fl_clash/common/path.dart';
+import 'package:starlit_connect/common/lock.dart';
+import 'package:starlit_connect/common/path.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path/path.dart';
 

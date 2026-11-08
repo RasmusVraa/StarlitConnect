@@ -1,6 +1,6 @@
-import 'package:fl_clash/application.dart';
-import 'package:fl_clash/manager/hotkey_manager.dart';
-import 'package:fl_clash/manager/manager.dart';
+import 'package:starlit_connect/application.dart';
+import 'package:starlit_connect/manager/hotkey_manager.dart';
+import 'package:starlit_connect/manager/manager.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 

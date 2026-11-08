@@ -372,7 +372,12 @@ class ProxiesAction extends _$ProxiesAction {
         if (state.proxyName.isEmpty) {
           continue;
         }
-        final currentTestUrl = state.testUrl.takeFirstValid([fallbackTestUrl]);
+        // Prefer the caller URL (Starlit forces Cloudflare) over a group's
+        // subscription testUrl (often a blocked gstatic generate_204).
+        final currentTestUrl = batch.testUrl.takeFirstValid([
+          state.testUrl,
+          fallbackTestUrl,
+        ]);
         final key = delayTestKey(currentTestUrl, state.proxyName);
         if (!seen.add(key)) {
           continue;

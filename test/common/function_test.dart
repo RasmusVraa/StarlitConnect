@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:fl_clash/common/function.dart';
+import 'package:starlit_connect/common/function.dart';
 import 'package:test/test.dart';
 
 void main() {

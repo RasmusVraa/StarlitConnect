@@ -1,6 +1,6 @@
-import 'package:fl_clash/models/profile.dart';
-import 'package:fl_clash/pages/editor.dart';
-import 'package:fl_clash/providers/action.dart';
+import 'package:starlit_connect/models/profile.dart';
+import 'package:starlit_connect/pages/editor.dart';
+import 'package:starlit_connect/providers/action.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
